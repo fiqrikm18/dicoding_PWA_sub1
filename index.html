@@ -6,6 +6,12 @@
     <meta name="description" content="this is a simple book store app" />
     <title>Book Store</title>
     <link rel="stylesheet" href="css/materialize.min.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#4caf50" />
   </head>
   <body>
     <nav class="green" role="navigation">
@@ -18,28 +24,49 @@
       </div>
     </nav>
 
-    <!-- TODO: add carousel? -->
-
+    <!-- content -->
     <div id="content-container"></div>
-    <script src="js//materialize.min.js"></script>
+    <!-- end content -->
+
+    <!-- footer -->
+    <footer class="green page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Submission 1</h5>
+            <p class="grey-text text-lighten-4">
+              Ini adalah applikasi BookStore yang digunakan sebagai
+              <i>submission 1</i>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2014 Copyright Fiqri khoirul m
+        </div>
+      </div>
+    </footer>
+    <!-- end footer -->
+
+    <script src="js/materialize.min.js"></script>
     <script src="js/nav.js"></script>
+
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
           navigator.serviceWorker
             .register("/service-worker.js")
-            .then(function () {})
+            .then(function () {
+              console.log("Pendaftaran ServiceWorker berhasil");
+            })
             .catch(function () {
-              console.log("Failed to register serviceworker.");
+              console.log("Pendaftaran ServiceWorker gagal");
             });
         });
       } else {
-        console.log("Browser isn't support servicewoerker");
+        console.log("ServiceWorker belum didukung browser ini.");
       }
-
-      document.addEventListener("DOMContentLoaded", function() {
-          var page = window.location.hash.substr(1);
-      });
     </script>
   </body>
 </html>
