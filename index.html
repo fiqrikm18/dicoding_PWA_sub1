@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="this is a simple book store app" />
+    <title>Book Store</title>
+    <link rel="stylesheet" href="css/materialize.min.css" />
+  </head>
+  <body>
+    <nav class="green" role="navigation">
+      <div class="nav-wrapper container">
+        <a href="#" class="brand-logo" id="logo-container">BookStore</a>
+        <a href="#" class="sidenav-trigger" data-target="nav-mobile">&#9776;</a>
+
+        <ul class="topnav right hide-on-med-and-down"></ul>
+        <ul class="sidenav" id="nav-mobile"></ul>
+      </div>
+    </nav>
+
+    <div id="content-container"></div>
+    <script src="js//materialize.min.js"></script>
+    <script src="js/nav.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then(function () {})
+            .catch(function () {
+              console.log("Failed to register serviceworker.");
+            });
+        });
+      } else {
+        console.log("Browser isn't support servicewoerker");
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+          var page = window.location.hash.substr(1);
+      });
+    </script>
+  </body>
+</html>
